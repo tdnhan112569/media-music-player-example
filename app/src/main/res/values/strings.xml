@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Music Player</string>
+    <string name="download">Download</string>
+    <string name="cancel">Cancel</string>
+    <string name="back">BACK</string>
+    <string name="pause">PAUSE</string>
+    <string name="next">NEXT</string>
+    <string name="play">PLAY</string>
+    <string name="stop">Stop</string>
+</resources>

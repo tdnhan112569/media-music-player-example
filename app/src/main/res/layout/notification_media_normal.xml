@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:gravity="start"
+    android:layout_height="48dp">
+
+    <LinearLayout
+        android:layout_marginTop="10dp"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/tvSongName"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:singleLine="true"
+            android:ellipsize="marquee"
+            android:marqueeRepeatLimit ="marquee_forever"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:scrollHorizontally="true"
+            android:textColor="@color/content_notification"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            tools:text="Ten bai hat" />
+
+
+
+        <TextView
+            android:id="@+id/tvTime"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:textColor="@color/content_notification"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="00:00" />
+
+        <ImageButton
+            android:id="@+id/icExist"
+            android:scaleType="fitXY"
+            android:layout_width="46dp"
+            android:layout_height="40dp"
+            android:src="@drawable/ic_baseline_exit_to_app_24" />
+
+    </LinearLayout>
+
+
+    <ProgressBar
+        style="?android:attr/progressBarStyleHorizontal"
+        android:id="@+id/progress"
+        android:max="100"
+        android:visibility="gone"
+        android:progress="10"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <LinearLayout
+        android:visibility="gone"
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:gravity="center"
+        android:layout_height="wrap_content">
+
+        <ImageButton
+            android:id="@+id/ibPlayBack10s"
+            android:scaleType="fitXY"
+            android:layout_width="46dp"
+            android:layout_height="40dp"
+            android:src="@drawable/ic_baseline_replay_10_24" />
+
+        <ImageButton
+            android:id="@+id/ibPlayBack"
+            android:scaleType="fitXY"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/ic_baseline_arrow_back_24" />
+
+        <ImageButton
+            android:id="@+id/ibPlayOrPause"
+            android:scaleType="fitXY"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/ic_baseline_pause_24" />
+
+        <ImageButton
+            android:id="@+id/ibPlayNext"
+            android:scaleType="fitXY"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/ic_baseline_arrow_forward_24" />
+
+        <ImageButton
+            android:id="@+id/ibPlayForward10s"
+            android:scaleType="fitXY"
+            android:layout_width="46dp"
+            android:layout_height="40dp"
+            android:src="@drawable/ic_baseline_forward_10_24" />
+
+        <ImageButton
+            android:id="@+id/ibExist"
+            android:scaleType="fitXY"
+            android:layout_width="46dp"
+            android:layout_height="40dp"
+            android:src="@drawable/ic_baseline_exit_to_app_24" />
+
+    </LinearLayout>
+
+</LinearLayout>
