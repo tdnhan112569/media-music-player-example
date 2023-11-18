@@ -150,14 +150,16 @@ public class MusicPlayerService extends Service
 //        songInfos.add(new SongInfo("Từ chối nhẹ nhàng thôi", "https://data3.chiasenhac.com/downloads/2109/1/2108037/128/Tu%20Choi%20Nhe%20Nhang%20Nhac%20chuong_%20-%20Bich%20Ph.mp3"));
 //        songInfos.add(new SongInfo("See tình", "https://data.chiasenhac.com/down2/2226/1/2225812-e3722baa/128/See%20Tinh%20-%20Hoang%20Thuy%20Linh.mp3"));
 //        songInfos.add(new SongInfo("Muộn rồi mà sao còn -  Sơn Tùng MTP", "https://data.chiasenhac.com/down2/2169/1/2168156-4608576a/128/Muon%20Roi%20Ma%20Sao%20Con%20-%20Son%20Tung%20M-TP.mp3"));
-        songInfos.add(new SongInfo("WFU", "https://data.chiasenhac.com/down2/2276/0/2275150-9f672b16/128/Waiting%20For%20You%20-%20MONO_%20Onionn.mp3"));
+        //songInfos.add(new SongInfo("Waiting for you", "https://data.chiasenhac.com/down2/2276/0/2275150-9f672b16/128/Waiting%20For%20You%20-%20MONO_%20Onionn.mp3", R.raw.waiting_for_you_offline));
         songInfos.add(new SongInfo(
-                "Bên Trên Tầng Lầu",
-                "https://data.chiasenhac.com/down2/2263/0/2262193-48617f77/128/Ben%20Tren%20Tang%20Lau%20-%20Tang%20Duy%20Tan.mp3"
+                "Cắt đôi nỗi sầu",
+                "https://data.chiasenhac.com/down2/2263/0/2262193-48617f77/128/Ben%20Tren%20Tang%20Lau%20-%20Tang%20Duy%20Tan.mp3",
+                R.raw.cat_doi_noi_sau
         ));
         songInfos.add(new SongInfo(
-                "Ngã tư không đèn",
-                "https://data.chiasenhac.com/down2/2265/0/2264080-971f0649/128/Nga%20Tu%20Khong%20Den%20-%20Trang_%20Khoa%20Vu.mp3"
+                "Lệ lưu ly",
+                "https://data.chiasenhac.com/down2/2265/0/2264080-971f0649/128/Nga%20Tu%20Khong%20Den%20-%20Trang_%20Khoa%20Vu.mp3",
+                R.raw.le_luu_ly
         ));
         currentSong = songInfos.get(0);
     }
@@ -272,7 +274,9 @@ public class MusicPlayerService extends Service
     private void prepareMusicPlayer() {
         try {
             if(!mediaPlayer.isPlaying() && !isReleased) {
-                mediaPlayer.setDataSource(currentSong.url);
+                android.content.res.AssetFileDescriptor assetFileDescriptor = this.getResources().openRawResourceFd(currentSong.rawId);
+                mediaPlayer.setDataSource(assetFileDescriptor.getFileDescriptor(), assetFileDescriptor.getStartOffset(), assetFileDescriptor.getLength());
+//                mediaPlayer.setDataSource(currentSong.url);
                 mediaPlayer.prepareAsync(); // might take long! (for buffering, etc)
             }
         } catch (IOException e) {
